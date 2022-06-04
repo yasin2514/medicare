@@ -1,0 +1,304 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Medi Care | Largest Telemedicine platform in Bangladesh</title>
+
+    <meta name="keywords" content="Telemedicine in Bangladesh" />
+
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Text|Raleway|Ubuntu:500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/language.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lightcase.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+
+</head>
+
+<body style="background-color : skyblue;">
+
+    <!-- Header Start -->
+    <header class="bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="header-content">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="{% url 'home' %}">
+                            <img src="{% static 'images/partners/logo.en.png' %}" alt="">
+                        </a>
+                        <a href="#" class="custom-btn-blue btn-ani download-btn mobile">
+                            <span class="db-text">
+                                Download App </span>
+                            <span class="db-icon">
+                                <!-- <i class="ti-android"></i> -->
+                                <i class="ti-download"></i>
+                            </span>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav primary-nav">
+                                <li class="nav-item dropdown item-full-width">
+                                    <a class="nav-link" href="livechat.html">
+                                        Live Chat
+                                    </a>
+
+
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="medicine.html">
+                                        Medicine Service </a>
+
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="ambulance.html">
+                                        Emergency Ambulance </a>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link " href="#" id="navbarDropdown" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        More </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li class="dropdown-item">
+                                            <a class="nav-link" href="packages.php">
+                                                Packages <span class="menu-caption"></span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                            <a class="nav-link" href="about-us.php">
+                                                About Us <span class="menu-caption"></span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                            <a class="nav-link" href="our-doctors.php">
+                                                Our Doctors <span class="menu-caption"></span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                            <a class="nav-link" href="contact.php">
+                                                Contact <span class="menu-caption"></span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                            <a class="nav-link" href="download.php">
+                                                Download App <span class="menu-caption"></span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                                {% if user.is_authenticated %}
+
+
+                                {% for doctor in object_list %}
+
+                                {% if doctor.username == user.username and doctor.veri == "verified" %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="">
+
+                                        Welcome Dr {{ user.get_full_name }} </a>
+                                    {% elif doctor.username == user.username and doctor.veri == "not_verify" %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="">
+
+                                        Doctor request pending </a>
+                                    {% endif %}
+                                    {% endfor %}
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">
+                                        Sign in as {{ user.username }} </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'signout' %}">
+                                        Log out </a>
+                                </li>
+
+
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'signin' %}">
+                                        Login/Registration </a>
+                                </li>
+                                {% endif %}
+
+
+
+                            </ul>
+                            <!-- <ul class="navbar-nav navbar-right">
+        </ul> -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div
+        style="width: 29%;height: 500px;margin: auto;border: 1px solid black;overflow: scroll;background-color: white;">
+        <h1 style="text-align: center;">Doctor Profile</h1>
+        <hr>
+        <div style="text-align: center;">
+            <p>Name : Dr. {{ doctor.name }}</p>
+            <p>Phone : {{ doctor.phone }}</p>
+            <p>Address : {{ doctor.address }}</p>
+
+            <div style="width: 72%;margin: auto;border: 1px solid black;background-color: skyblue;">
+                <p>Shedule</p>
+                <hr>
+                <p>{{ doctor.schedule_day }}</p>
+                <p>{{ doctor.schedule_time }}</p>
+                <form action="{% url 'app_form' %}" method="POST">
+                    <div style="text-align:center;">
+                        {% for message in messages %}
+                  
+                  
+                        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                          <strong>Warning !</strong>{{ message }}
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                  
+                        {% endfor %}
+                      </div>
+                    {% csrf_token %}
+                    <input name="username" value="{{ user.username }}" type="hidden">
+                    <input name="name" value="{{ user.get_full_name }}" type="hidden">
+                    <input name="email" value="{{ user.email }}" type="hidden">
+                    <input name="doctor" value="{{ doctor.name }}" type="hidden">
+                    <input name="app_id" value="{{ doctor.pk }}" type="hidden">
+                    <input type="submit" value="Make appointments"
+                        style="text-decoration: none;color: black;background-color: white;border: none;">
+                </form>
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <div style="width: 29%;height: 500px;margin: auto;border: 1px solid black;overflow: scroll;background-color: white;">
+        <h1 style="text-align: center;">Your appointment</h1>
+        <hr>
+<div style="text-align: center;">
+    
+    {% for app in app_list %}
+    
+    {% if app.app_id == doctor.pk and app.username == user.username %}
+    <div class="card">
+        <div style="text-align: left;" class="card-header">
+          Appointments ID : {{ app.pk }}
+        </div>
+        <div style="text-align: left;" class="card-body">
+          <h5 class="card-title">I need a appointment</h5>
+          <p class="card-text">Name : {{ app.name }}</p>
+          <p class="card-text">Email : {{ app.email }}</p>
+        </div>
+      </div>
+        
+    {% endif %}
+        
+        
+    {% endfor %}
+        
+
+</div>
+    
+    </div>
+    <!-- Header End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer Start -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'js/font-spy.js' %}"></script>
+    <script src="{% static 'js/wow.js' %}"></script>
+    <script src="{% static 'js/lightcase.js' %}"></script>
+    <script src="{% static 'js/custom.js?v=1.2' %}"></script> <!-- Footer End -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vissense/0.9.0/vissense.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                items: 1,
+                loop: true,
+                center: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplaySpeed: 1000,
+                animateOut: "fadeOut",
+                animateIn: "fadeIn",
+            });
+            $(".service-item").matchHeight();
+            $(".d-box").matchHeight();
+            $(".postcard-meta").matchHeight();
+
+            var myVideo = document.getElementById('myVideo');
+
+            VisSense.VisMon.Builder(VisSense(myVideo, { fullyvisible: 0.75 }))
+                .on('fullyvisible', function (monitor) {
+                    myVideo.play();
+                })
+                .on('hidden', function (monitor) {
+                    myVideo.pause();
+
+                })
+                .build()
+                .start();
+        });
+    </script>
+</body>
+
+</html>

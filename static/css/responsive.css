@@ -1,0 +1,254 @@
+@media (min-width: 992px) {
+    .fact:not(:last-child):after {
+        content: "";
+        width: 1px;
+        height: 80%;
+        background: #ccc;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+    }
+    #faq-wrap .card-body {
+        /* padding-left: 250px; */
+    }
+    #faq-wrap .card-body:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-image: url('../images/other/faq-bg-2.png');
+        background-repeat: no-repeat;
+        background-position: 30px center;
+        background-size: contain;
+        z-index: -1;
+        opacity: 0.08;
+    }
+}
+@media (max-width: 991px) {
+    .download-btn.mobile {
+        display: block !important;
+    }
+    .fun-fact-wrap,
+    .slogan-wrap {
+        margin-top: 15px !important;
+        padding: 15px !important;
+    }
+    .fact,
+    .slogan {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .fact:not(:last-child):after {
+        content: "";
+        width: 80%;
+        height: 1px;
+        background: #ccc;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+@media (max-width: 433px) {
+    .navbar-brand {
+        margin-right: 10px  !important;
+    }
+}
+/* @media (max-width: 375px) {
+    .slider-section {
+        background-position-x: -700px !important;
+        background-position-y: top !important;
+    }
+
+} */
+/* @media (min-width: 376px) and (max-width: 470px) { */
+@media (max-width: 400px) and (min-width: 333px) {
+    .slider-section {
+        /* background-position-x: -500px !important; */
+        background-position-x: -550px !important;
+        background-position-y: top !important;
+    }
+
+}
+/* @media (min-width: 471px) and (max-width: 625px) { */
+@media (min-width: 401px) and (max-width: 465px) {
+    .slider-section {
+        background-position-x: -665px !important;
+        background-position-y: top !important;
+    }
+
+}
+@media (min-width: 466px) and (max-width: 535px) {
+    .slider-section {
+        background-position-x: -635px !important;
+        background-position-y: top !important;
+    }
+
+}
+@media (min-width: 401px) and (max-width: 535px) {
+    .slider-section {
+        background-position-x: -450px !important;
+        background-position-y: top !important;
+    }
+
+}
+
+@media (min-width: 401px) and (max-width: 535px) {
+    .slider-section {
+        background-position-x: -450px !important;
+        background-position-y: top !important;
+    }
+
+}
+@media (min-width: 536px) and (max-width: 699px) {
+    .slider-section {
+        background-position-x: -370px !important;
+        background-position-y: top !important;
+    }
+
+}
+@media (min-width: 700px) and (max-width: 767px) {
+    .slider-section {
+        background-position-x: -300px !important;
+        background-position-y: top !important;
+    }
+
+}
+/* @media (max-width: 767px) and (min-width: ){
+
+} */
+@media (max-width: 575px) {
+    .doctor-info {
+        text-align: center;
+    }
+    .summary {
+        text-align: center;
+    }
+    /* .summary .readmore {
+        color: #069ae1;
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+    } */
+}
+
+@media (min-width: 768px) {
+    .medicare-tab .card {
+        border: none;
+    }
+
+    .medicare-tab .card .card-header {
+        display:none;
+    }
+
+    .medicare-tab .card .collapse{
+        display:block;
+    }
+}
+@media (max-width: 767px) and (min-width: 532px) {
+    .slider-section .slider-wrap {
+        /* height: 580px; */
+        /* height: 768px !important; */
+        height: 600px;
+    }
+}
+@media (max-width: 767px) {
+    .slider-content {
+        text-align: center;
+        margin-top: 240px !important;
+        z-index: 999999;
+        position: relative;
+    }
+    .slider-section:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -3px;
+        height: 600px;
+        background: linear-gradient(0deg, rgba(255,255,255,1) 45%, rgba(0,0,0,0) 100%);
+        z-index: 0;
+    }
+    .slider-content p {
+        margin-bottom: 15px !important;
+    }
+    .foo-logo {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .page-title {
+        background: transparent !important;
+    }
+    .contact-card {
+        margin-top: 30px;
+    }
+    .team-member.right .member-links {
+        justify-content: flex-start !important;
+    }
+    .page-service-item {
+        margin-bottom: 20px;
+    }
+    .page-service-content p {
+        text-align: justify;
+    }
+    .medicare-tab .card {
+        border-radius: 25px;
+        overflow: hidden;
+        display: block !important;
+        opacity: 1;
+        margin-bottom: 15px;
+    }
+    /* .medicare-tab .card-header:not(.collapsed) {
+        color: #069ae1;
+    } */
+    .medicare-tab .card-header a {
+        display: inline-block;
+        width: 100%;
+        color: #069ae1 !important;
+    }
+    .medicare-tab .card-header {
+        cursor: pointer;
+        position: relative;
+        padding-right: 60px;
+        background: #e5f3ff;
+    }
+    .medicare-tab .card-header:after {
+        content: "\e622";
+        font-family: themify;
+        position: absolute;
+        width: 34px;
+        height: 34px;
+        border: 1px solid;
+        border-radius: 30px;
+        text-align: center;
+        line-height: 32px;
+        z-index: 9;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .medicare-tab .card-header.collapsed:after {
+        content: "\e61a";
+    }
+}
+
+@media (max-width: 332px) {
+    .slider-section .slider-wrap {
+        height: 720px;
+    }
+    .slider-section {
+        background-position-x: -700px !important;
+        background-position-y: top !important;
+    }
+}
+@media (max-width: 320px) {
+    .download-btn.mobile .db-text {
+        display: none !important;
+    }
+    .download-btn.mobile .db-icon {
+        display: block !important;
+    }
+}

@@ -1,0 +1,158 @@
+/*<!--For X-small device-->*/
+
+@media (max-width: 575px)
+{
+ 
+    
+    .logo{
+    left: 120px;
+    height: 50px;
+    top: 110px;
+    }
+    
+    
+    
+    .email{
+        width: 380px;
+        
+    }
+    
+    
+    .password{
+        width: 380px;
+        
+    }
+    .Log{
+    left: 119px;
+        
+    }
+    
+    
+   .Account {
+    left: 119px;
+     }
+    
+        
+    }
+    
+
+
+
+
+/*<!--For small device-->*/
+
+@media (min-width:576px) and (max-width: 767px) {
+ 
+}
+
+
+/*<!--For medium device-->*/
+
+@media (min-width:768px) and (max-width: 991px) {
+    
+    
+        
+    .logo{
+  left: 245px;
+    height: 99px;
+    top: 110px;
+    }
+    
+    
+    
+    .email{
+       width: 702px;
+    height: 82px;
+    margin-top: 278px;
+        
+    }
+    
+    
+    .password{
+    width: 702px;
+    height: 82px;
+    margin-top: 387px;
+        
+    }
+    .Log{
+left: 320px;
+    margin-top: 563px;
+    height: 80px;
+        
+    }
+    
+    
+   .Account {
+left: 320px;
+    margin-top: 678px;
+    height: 80px;
+}
+     
+ 
+  
+}
+
+
+/*<!--For Large device-->*/
+
+@media (min-width:992px) and(max-width: 1199px){
+    
+    
+     .logo{
+ 
+    }
+    
+    
+    
+    .email{
+      
+        
+    }
+    
+    
+    .password{
+
+        
+    }
+
+    }
+    
+    
+   .Account {
+
+}
+    
+   
+}
+/*<!--For Extra-Large device-->*/
+
+@media (min-width:1200px) {
+    
+    
+     .logo{
+
+    }
+    
+    
+    
+    .email{
+  
+        
+    }
+    
+    
+    .password{
+   
+        
+    }
+    .Log{
+
+        
+    }
+    
+    
+   .Account {
+
+}
+   
+}

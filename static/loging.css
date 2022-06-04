@@ -1,0 +1,87 @@
+body{
+     margin: 0px;
+    padding: 0px;
+    background-image: url(banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+     background-attachment: fixed;
+   
+  
+}
+
+
+.logo{
+    background-color: honeydew;
+    border-radius: 12px;
+    height: 100px;
+    position: absolute;
+    top: 56px;
+    left: 89px;
+    
+}
+
+
+
+
+
+.email{
+    
+    margin-top: 240px;
+    position: absolute;
+    height: 61px;
+    width: 445px;
+    
+}
+
+
+.password{
+    margin-top: 350px;
+    position: absolute;
+    height: 61px;
+    width: 445px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+.Log{
+      position: absolute;
+    height: 65px;
+    width: 215px;
+    left: 160px;
+    margin-top: 475px;
+    color: white;
+background-color: #1033E2;
+}
+
+.Account{
+    position: absolute;
+    height: 65px;
+    width: 215px;
+    left: 160px;
+    margin-top: 570px;
+    color: white;
+    background-color: #72081A;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

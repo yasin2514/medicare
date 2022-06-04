@@ -1,0 +1,624 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Medi Care | Largest Telemedicine platform in Bangladesh</title>
+
+    <meta name="keywords" content="Telemedicine in Bangladesh" />
+
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Text|Raleway|Ubuntu:500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/language.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lightcase.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+
+</head>
+
+<body>
+
+    <!-- Header Start -->
+    <header class="bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="header-content">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="{% url 'home' %}">
+                            <img src="{% static 'images/partners/logo.en.png' %}" alt="">
+                        </a>
+                        <a href="#" class="custom-btn-blue btn-ani download-btn mobile">
+                            <span class="db-text">
+                                Download App </span>
+                            <span class="db-icon">
+                                <!-- <i class="ti-android"></i> -->
+                                <i class="ti-download"></i>
+                            </span>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav primary-nav">
+                                <li class="nav-item dropdown item-full-width">
+                                    <a class="nav-link" href="livechat.html">
+                                        Live Chat
+                                    </a>
+
+
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="medicine.html">
+                                        Medicine Service </a>
+
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="ambulance.html">
+                                        Emergency Ambulance </a>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link " href="#" id="navbarDropdown" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        More </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li class="dropdown-item">
+                                            <a class="nav-link" href="packages.php">
+                                                Packages <span class="menu-caption"></span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                            <a class="nav-link" href="about-us.php">
+                                                About Us <span class="menu-caption"></span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                            <a class="nav-link" href="our-doctors.php">
+                                                Our Doctors <span class="menu-caption"></span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                            <a class="nav-link" href="contact.php">
+                                                Contact <span class="menu-caption"></span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                            <a class="nav-link" href="download.php">
+                                                Download App <span class="menu-caption"></span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                                {% if user.is_authenticated %}
+
+
+                                {% for doctor in object_list %}
+
+                                {% if doctor.username == user.username and doctor.veri == "verified" %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{% url 'profile' doctor.pk %}">
+
+                                        Welcome Dr {{ user.get_full_name }} </a>
+                                    {% elif doctor.username == user.username and doctor.veri == "not_verify" %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="">
+
+                                        Doctor request pending </a>
+                                    {% endif %}
+                                    {% endfor %}
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">
+                                        Sign in as {{ user.username }} </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'signout' %}">
+                                        Log out </a>
+                                </li>
+
+
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'signin' %}">
+                                        Login/Registration </a>
+                                </li>
+                                {% endif %}
+
+
+
+                            </ul>
+                            <!-- <ul class="navbar-nav navbar-right">
+        </ul> -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header> <!-- Header End -->
+
+    <section class="slider-section">
+        <div class="slider-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-7 col-lg-6">
+                        <div class="slider-content">
+                            <h2 class="delay-ani animated slideInRight">A Doctor, <br> who is always with you<span></span></h2>
+
+{% if user.is_authenticated %}
+    
+
+    
+                                    <br><a href="{% url 'form' %}">Be a doctor?</a>
+                                    <br>
+                                    Or
+                                    <p><a href="{% url 'doctor_list' %}">Find a doctor?</a></p>
+                                    {% endif %}
+
+
+                                
+                            <p class="delay-ani animated slideInRight">Medicare anywhere</p>
+
+                            <div class="store-btn-wrap">
+                                <a class="store-btn" href="#">
+
+                                    <img class="img-fluid" alt='Get it on Google Play'
+                                        src="{% static 'images/partners/google-play-badge.png' %}" />
+                                </a>
+                                <a class="store-btn" href="#">
+
+                                    <img class="img-fluid" alt='Get it on App Store'
+                                        src="{% static 'images/partners/App_Store_Badge_US.svg' %}" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slogan-section">
+        <div class="container">
+            <div class="slogan-wrap p-2 text-center delay-ani animated slideInUp">
+                <div class="row">
+                    <div class="slogan col-12">
+                        <h4>Health care is not a privilege, it is a right</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="page-features-details home-sec2 pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 align-self-center">
+                    <div class="d-flex">
+                        <div class="features-item-text">
+                            <h5 class="mb-4"><strong>Healthcare with a single tap </strong></h5>
+                            <p>
+                                You can get consultation in a matter of minutes from a registered doctor via video
+                                calling for physical illness, primary healthcare, maternal and elderly healthcare, or
+                                neonatal care and counselling. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 overflow-hidden">
+                    <div class="page-features-img wow bounceInUp" data-wow-delay="0.2s">
+                        <img src="{% static 'images/home/1.png' %}" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-features-details home" style="background: #f0f8ff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h5 class="mb-5 mt-5 text-center delay-ani wow slideInUp" style="font-size: 29px;">Time and distance
+                        are no longer a matter of concern. Easily receive advice on physical illness or health issues
+                        through video calling.</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 align-self-center">
+                    <ul class="page-features-items">
+                        <li class="delay-ani wow bounceInLeft" data-wow-delay="0.1s">
+                            <div class="d-flex">
+                                <div class="icon">
+                                    <span>1</span>
+                                </div>
+                                <div class="features-item-text">
+                                    <h5><strong>Create Appointments</strong></h5>
+                                    <p>
+                                        Download the <a
+                                            href="https://play.google.com/store/apps/details?id=com.doctordekhao.patient&hl=en"
+                                            target="_blank">"MediCare"</a> app from the Google Play Store and create
+                                        your account in less than a minute, and make appointments easily. </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="delay-ani wow bounceInLeft" data-wow-delay="0.3s">
+                            <div class="d-flex">
+                                <div class="icon">
+                                    <span>2</span>
+                                </div>
+                                <div class="features-item-text">
+                                    <h5><strong>Get Medical Consultation via Video Calling</strong></h5>
+                                    <p>
+                                        You can make an instant appointment and get the advice of a doctor in a video
+                                        call, or you can make an appointment with a specialist doctor of your choice for
+                                        the next time. </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="delay-ani wow bounceInLeft" data-wow-delay="0.5s">
+                            <div class="d-flex">
+                                <div class="icon">
+                                    <span>3</span>
+                                </div>
+                                <div class="features-item-text">
+                                    <h5><strong>Get E-Prescription</strong></h5>
+                                    <p>
+                                        As soon as the video call ends, you will get the e-prescription given by the
+                                        doctor in your app. You will also be given a reminder to take the medicine on
+                                        time. </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6 overflow-hidden">
+                    <div class="owl-carousel">
+                        <div class="page-features-img">
+                            <img src="{% static 'images/home/2-1.png' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="page-features-img">
+                            <img src="{% static 'images/home/2-2.png' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="page-features-img">
+                            <img src="{% static 'images/home/2-3.png' %}" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="expert-doctor">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 section-title-wrap">
+                    <div class="section-title delay-ani animated bounceIn">
+                        <h3>Value Added Features</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="d-box delay-ani animated bounceIn">
+                        <div class="d-box-img">
+                            <img src="{% static 'images/home/3-1.png' %}" alt="">
+                        </div>
+                        <div class="d-box-content text-center">
+                            <h4>Upload Medical Report</h4>
+                            <p>Upload and save important medical reports in the app. Your reports are safely stored and
+                                they help the doctors to provide you with accurate consultation.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="d-box delay-ani animated bounceIn">
+                        <div class="d-box-img">
+                            <img src="{% static 'images/home/3-2.png' %}" alt="">
+                        </div>
+                        <div class="d-box-content text-center">
+                            <h4>Get Medicine Reminder</h4>
+                            <p>Who remembers to take medicine on time! That’s why MediCare mobile app has a medicine
+                                reminder feature which auto-sync with e-prescriptions and will remind you to take the
+                                medicine at the right time.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="d-box delay-ani animated bounceIn">
+                        <div class="d-box-img">
+                            <img src="{% static 'images/home/3-3.png' %}" alt="">
+                        </div>
+                        <div class="d-box-content text-center">
+                            <h4>Create Health Profile</h4>
+                            <p>Add information about your current or chronic medical conditions, family medical history
+                                and habits in the profile section of MediCare App. Allow Doctors to ensure fast and
+                                accurate medical care for you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 section-title-wrap">
+                    <div class="section-title delay-ani animated bounceIn">
+                        <h3>Our Services</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row pb-5">
+                <div class="col-12 col-md-6 col-lg-3 align-self-center">
+                    <a href="video-consultation.php" class="service-item icon icon-video-con">
+                        Live Chat </a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 align-self-center">
+                    <a href="expert-doctor-consultation.php" class="service-item icon icon-med">
+                        Expert Doctor's Consultation </a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 align-self-center">
+                    <a href="immigrant-welfare.php" class="service-item icon icon-non-residant">
+                        Non-resident Welfare </a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 align-self-center">
+                    <a href="agents-women-entrepreneur.php" class="service-item icon icon-women-ent">
+                        Women Entrepreneurs </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="" style="background: #f0f3fa">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-7 align-self-center">
+                    <div class="faqs">
+                        <h3 class="wow slideInLeft" data-wow-duration="1s">Take Any Kind of Health Advice Easily</h3>
+                        <p class="wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.1s">
+                            You will now get all kinds of health related services for your day to day life through an
+                            app. Ranging from primary health care for your illness to specialist doctors’ consultation
+                            or referrals for hospital admission. </p>
+                        <a class="btn-text btn-transparent read-more wow slideInLeft" href="our-services.php"
+                            data-wow-duration="1s" data-wow-delay="0.2s">
+                            What We Treat <i class="ti-angle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5 align-self-center">
+                    <ul class="features">
+                        <li class="wow slideInRight" data-wow-delay="0.1s">
+                            <a href="immediate-medicare.php">Instant Healthcare</a>
+                        </li>
+                        <li class="wow slideInRight" data-wow-delay="0.1s">
+                            <a href="immediate-medicare.php">Specialist Consultation</a>
+                        </li>
+                        <li class="wow slideInRight" data-wow-delay="0.1s">
+                            <a href="immediate-medicare.php">Maternal Healthcare</a>
+                        </li>
+                        <li class="wow slideInRight" data-wow-delay="0.1s">
+                            <a href="immediate-medicare.php">Elderly Healthcare</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-features-details home-sec2 pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 align-self-center">
+                    <div class="d-flex">
+                        <div class="features-item-text delay-ani animated fadeInLeft">
+                            <h5 class="mb-4"><strong>Are You a Specialized Doctor ? </strong></h5>
+                            <p>
+                                Join Our MediCare Team and Create your Virtual Chamber. Provide Medical Consultancy via
+                                video call and expand the reach of your service. </p>
+                            <a href="Join-as-doctor.php" class="btn-ani btn-blue custom-btn">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 overflow-hidden">
+                    <div class="page-features-img wow bounceInUp" data-wow-delay="0.2s">
+                        <img src="{% static 'images/home/4-3.png' %}" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" style="background-color: #fff">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 section-title-wrap">
+                    <div class="section-title delay-ani animated bounceIn">
+                        <h3 class="wow fadeInUp" data-wow-duration="1s">How to Use MediCare App</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 align-self-center">
+                    <div class="">
+
+                        <button class="active btn-text btn-transparent read-more tut-link wow fadeInUp"
+                            data-src="https://www.youtube-nocookie.com/embed/UhrAbIz8rDI" data-wow-duration="1s"
+                            data-wow-delay="0.2s"><i class="ti-angle-double-right"></i> What is the MediCare
+                            App?</button>
+                        <button class=" btn-text btn-transparent read-more tut-link wow fadeInUp"
+                            data-src="https://www.youtube-nocookie.com/embed/8GOU_utjdzA" data-wow-duration="1s"
+                            data-wow-delay="0.3s"><i class="ti-angle-double-right"></i> How to register in MediCare
+                            App?</button>
+                        <button class=" btn-text btn-transparent read-more tut-link wow fadeInUp"
+                            data-src="https://www.youtube-nocookie.com/embed/s8b1V_qVSvE" data-wow-duration="1s"
+                            data-wow-delay="0.4s"><i class="ti-angle-double-right"></i> How to Update Profile in
+                            MediCare App?</button>
+                        <button class=" btn-text btn-transparent read-more tut-link wow fadeInUp"
+                            data-src="https://www.youtube-nocookie.com/embed/z055k3R2dlY" data-wow-duration="1s"
+                            data-wow-delay="0.5s"><i class="ti-angle-double-right"></i> How to Set Appointments in
+                            MediCare App?</button>
+                        <button class=" btn-text btn-transparent read-more tut-link wow fadeInUp"
+                            data-src="https://www.youtube-nocookie.com/embed/3HfSroaczuQ" data-wow-duration="1s"
+                            data-wow-delay="0.6s"><i class="ti-angle-double-right"></i> How to Upload Medical Test
+                            Reports in MediCare App?</button>
+                        <button class=" btn-text btn-transparent read-more tut-link wow fadeInUp"
+                            data-src="https://www.youtube-nocookie.com/embed/qkVhKTM_mR0" data-wow-duration="1s"
+                            data-wow-delay="0.7s"><i class="ti-angle-double-right"></i> How to Use a MediCare Health
+                            Card?</button>
+                        <button class=" btn-text btn-transparent read-more tut-link wow fadeInUp"
+                            data-src="https://www.youtube-nocookie.com/embed/zD8f_k3oakc" data-wow-duration="1s"
+                            data-wow-delay="0.8s"><i class="ti-angle-double-right"></i> How to Purchase a MediCare
+                            Health Package?</button>
+                        <button class=" btn-text btn-transparent read-more tut-link wow fadeInUp"
+                            data-src="https://www.youtube-nocookie.com/embed/SSiBfw1KpV8" data-wow-duration="1s"
+                            data-wow-delay="0.9s"><i class="ti-angle-double-right"></i> How to Receive E-prescription in
+                            MediCare App?</button>
+                        <button class=" btn-text btn-transparent read-more tut-link wow fadeInUp"
+                            data-src="https://www.youtube-nocookie.com/embed/kIpW7vkazuk" data-wow-duration="1s"
+                            data-wow-delay="1s"><i class="ti-angle-double-right"></i> How to Use Promo Code in MediCare
+                            App?</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer Start -->
+    <footer>
+        <div class="container">
+            <div class="foo-1">
+                <div class="row">
+                    <div class="col-12 col-md-4 align-self-center">
+                        <a class="foo-logo" href="#">
+                            <img src="{% static 'images/partners/logo.white.en.png' %}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-8 align-self-center">
+                        <ul class="foo-nav nav justify-content-md-end justify-content-center align-items-center">
+                            <li class="nav-item">
+                                <a href="terms-and-conditions.php" class="nav-link">Terms & Conditions</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="privacy-policy.php" class="nav-link">Privacy Policy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" target="_blank">
+                                    <img class="play-foo img-fluid"
+                                        src="{% static 'images/partners/google-play-badge.png' %}"
+                                        alt="Get it on Google Play">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" target="_blank">
+                                    <img class="play-foo img-fluid"
+                                        src="{% static 'images/partners/App_Store_Badge_US.svg' %}"
+                                        alt="Get it on App Store">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="foo-2">
+                <div class="row">
+                    <div class="col-12 col-md-7 align-self-center">
+                        <div class="foo-2-txt text-center text-md-left">
+                            Copyright © 2020 Medi Care . All rights reserved by space. <br>
+                            Powered by <span class="c-orange"> Computer </span> <span class="c-green">Burners
+                            </span></a> </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer> <!-- Footer End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer Start -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'js/font-spy.js' %}"></script>
+    <script src="{% static 'js/wow.js' %}"></script>
+    <script src="{% static 'js/lightcase.js' %}"></script>
+    <script src="{% static 'js/custom.js?v=1.2' %}"></script> <!-- Footer End -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vissense/0.9.0/vissense.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                items: 1,
+                loop: true,
+                center: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplaySpeed: 1000,
+                animateOut: "fadeOut",
+                animateIn: "fadeIn",
+            });
+            $(".service-item").matchHeight();
+            $(".d-box").matchHeight();
+            $(".postcard-meta").matchHeight();
+
+            var myVideo = document.getElementById('myVideo');
+
+            VisSense.VisMon.Builder(VisSense(myVideo, { fullyvisible: 0.75 }))
+                .on('fullyvisible', function (monitor) {
+                    myVideo.play();
+                })
+                .on('hidden', function (monitor) {
+                    myVideo.pause();
+
+                })
+                .build()
+                .start();
+        });
+    </script>
+</body>
+
+</html>

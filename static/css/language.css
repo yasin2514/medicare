@@ -1,0 +1,38 @@
+/* =================================== */
+/* ************* Bangla ************** */
+/* =================================== */
+
+html[lang="bn"] body {
+    font-family: 'SolaimanLipi', sans-serif;
+}
+html[lang="bn"] .about-img img {
+    max-height: 620px;
+}
+html[lang="en"] .about-img img {
+    max-height: 850px;
+}
+/* html[lang="bn"] .slider-content h2 {
+    font-family: 'Hind Siliguri', sans-serif;
+}
+html[lang="bn"] .about-section h3 {
+    font-family: 'Hind Siliguri', sans-serif;
+} */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* =================================== */
+/* ************* English ************** */
+/* =================================== */
+
+html[lang="en"] body {
+    font-family: 'Raleway', sans-serif;
+}
+html[lang="en"] .primary-nav .nav-link {
+    font-family: 'Ubuntu', sans-serif;
+}
+html[lang="en"] .slider-content h2 {
+    font-family: 'DM Serif Text', serif;
+}
+html[lang="en"] .about-section h3 {
+    font-family: 'Ubuntu', sans-serif;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
